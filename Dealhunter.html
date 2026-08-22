@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>DealHunter · find it cheaper</title>
+  <!-- Font & Icons (lightweight) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ===== style.css (embedded for single-file clarity) ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #f9faff;
+      color: #0b1a33;
+      line-height: 1.5;
+      padding: 0 1rem 2rem;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* ----- navigation ----- */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 0 0.8rem;
+      flex-wrap: wrap;
+      border-bottom: 1px solid rgba(0, 20, 80, 0.06);
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.6rem;
+      letter-spacing: -0.02em;
+      color: #1e3a8a;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .logo i {
+      color: #4f46e5;
+      font-size: 1.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+      font-weight: 500;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #1f2a44;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: #4f46e5;
+    }
+    .nav-cta {
+      background: #1e3a8a;
+      color: white !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover {
+      background: #2e4a9a !important;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      color: #1f2a44;
+      cursor: pointer;
+    }
+
+    /* mobile nav */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        padding: 1.2rem 0 0.5rem;
+        gap: 1.2rem;
+        align-items: flex-start;
+      }
+      .nav-links.open {
+        display: flex;
+      }
+      .nav-cta {
+        align-self: flex-start;
+      }
+    }
+
+    /* ----- hero ----- */
+    .hero {
+      padding: 3.2rem 0 2.8rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #0b1a33;
+      line-height: 1.2;
+    }
+    .hero h1 span {
+      background: linear-gradient(145deg, #1e3a8a, #4f46e5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      color: #2c3e5c;
+      max-width: 700px;
+      margin: 0.8rem auto 2rem;
+    }
+
+    /* ----- cards / sections ----- */
+    .section-card {
+      background: white;
+      border-radius: 32px;
+      box-shadow: 0 12px 32px -8px rgba(0, 20, 40, 0.08);
+      padding: 2rem 2rem 2.2rem;
+      margin-bottom: 2.5rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: #0b1a33;
+    }
+    .section-title i {
+      color: #4f46e5;
+    }
+
+    /* input groups */
+    .input-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin: 1.2rem 0 0.8rem;
+    }
+    .input-group input, .input-group select {
+      flex: 1 1 240px;
+      padding: 0.8rem 1.2rem;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 60px;
+      font-size: 1rem;
+      background: #fafbff;
+      transition: border 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .input-group input:focus, .input-group select:focus {
+      outline: none;
+      border-color: #4f46e5;
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+    }
+
+    .btn-primary {
+      background: #1e3a8a;
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+    }
+    .btn-primary:hover {
+      background: #2e4a9a;
+    }
+    .btn-primary:active {
+      transform: scale(0.97);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #1e3a8a;
+      color: #1e3a8a;
+      font-weight: 600;
+      padding: 0.6rem 1.4rem;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-outline:hover {
+      background: #eef2ff;
+    }
+
+    /* results container (hidden by default) */
+    .results-container {
+      margin-top: 1.8rem;
+      display: none;
+      animation: fadeSlide 0.3s ease;
+    }
+    .results-container.visible {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      0% { opacity: 0; transform: translateY(8px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* comparison cards */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.2rem;
+    }
+    .store-card {
+      background: #f8faff;
+      border-radius: 24px;
+      padding: 1.2rem 1rem 1.4rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      border: 1px solid #eef2f6;
+      transition: 0.15s;
+    }
+    .store-card:hover {
+      border-color: #b7c6e0;
+    }
+    .store-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #1f2a44;
+    }
+    .store-price {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #0b1a33;
+      margin: 0.3rem 0 0.1rem;
+    }
+    .original-price {
+      text-decoration: line-through;
+      color: #6b7a93;
+      font-size: 0.9rem;
+      margin-left: 0.4rem;
+      font-weight: 400;
+    }
+    .savings-badge {
+      background: #d1fae5;
+      color: #0b5e42;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: inline-block;
+      margin: 0.3rem 0;
+    }
+    .best-price {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+    .shipping {
+      font-size: 0.8rem;
+      color: #4a5a74;
+      margin: 0.2rem 0 0.6rem;
+    }
+
+    /* coupons */
+    .coupon-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-top: 1.2rem;
+    }
+    .coupon-item {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      background: #f8faff;
+      padding: 0.8rem 1.2rem;
+      border-radius: 60px;
+      border: 1px solid #eef2f6;
+      gap: 0.5rem 1rem;
+    }
+    .coupon-code {
+      font-weight: 700;
+      font-family: 'Inter', monospace;
+      background: #eef2ff;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+    }
+    .coupon-desc {
+      flex: 1;
+      font-size: 0.95rem;
+    }
+    .coupon-status {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #0b5e42;
+      background: #d1fae5;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+    }
+    .coupon-status.inactive {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+    .btn-copy {
+      background: white;
+      border: 1px solid #cbd5e1;
+      border-radius: 40px;
+      padding: 0.3rem 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-copy:hover {
+      background: #eef2ff;
+      border-color: #4f46e5;
+    }
+
+    /* how it works */
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin: 1.5rem 0 0.5rem;
+    }
+    .step {
+      flex: 1 1 160px;
+      text-align: center;
+    }
+    .step-number {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #4f46e5;
+      opacity: 0.3;
+    }
+    .step h4 {
+      font-size: 1.2rem;
+      margin: 0.2rem 0 0.2rem;
+    }
+
+    /* disclaimer & footer */
+    .disclaimer {
+      background: #f1f5f9;
+      border-radius: 24px;
+      padding: 1.2rem 1.8rem;
+      font-size: 0.9rem;
+      color: #334155;
+      border-left: 4px solid #4f46e5;
+      margin: 2.2rem 0 1.8rem;
+    }
+    footer {
+      border-top: 1px solid #e2e8f0;
+      padding: 2rem 0 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+    }
+    .footer-links a {
+      text-decoration: none;
+      color: #1f2a44;
+      font-weight: 500;
+    }
+    .footer-links a:hover {
+      color: #4f46e5;
+    }
+
+    /* toast notification */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0b1a33;
+      color: white;
+      padding: 0.7rem 2rem;
+      border-radius: 60px;
+      font-weight: 500;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      opacity: 0;
+      transition: opacity 0.25s, transform 0.2s;
+      pointer-events: none;
+      z-index: 999;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* loading spinner */
+    .spinner {
+      display: inline-block;
+      width: 1.2rem;
+      height: 1.2rem;
+      border: 3px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 0.7s linear infinite;
+      margin-right: 0.5rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .empty-state {
+      padding: 1.8rem 0;
+      color: #4a5a74;
+      text-align: center;
+    }
+
+    /* responsive */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2.4rem; }
+      .section-card { padding: 1.5rem; }
+      .coupon-item { border-radius: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- ====== NAVIGATION ====== -->
+    <nav>
+      <div class="logo"><i class="fas fa-bolt"></i> DealHunter</div>
+      <button class="hamburger" id="hamburger" aria-label="menu"><i class="fas fa-bars"></i></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#cheaper">Find Cheaper</a></li>
+        <li><a href="#coupons">Coupons</a></li>
+        <li><a href="#howitworks">How It Works</a></li>
+        <li><a href="#" class="nav-cta">Start Saving</a></li>
+      </ul>
+    </nav>
+
+    <!-- ====== HERO ====== -->
+    <header class="hero">
+      <h1>Find It Cheaper. <span>Save More.</span></h1>
+      <p>Paste a product link and discover better prices and available coupons in seconds.</p>
+    </header>
+
+    <!-- ====== 1. FIND IT CHEAPER ====== -->
+    <section id="cheaper" class="section-card">
+      <div class="section-title"><i class="fas fa-tag"></i> Find It Cheaper</div>
+      <div class="input-group">
+        <input type="url" id="productUrl" placeholder="Paste a product link..." aria-label="product link">
+        <button class="btn-primary" id="searchPriceBtn"><i class="fas fa-search"></i> Find Cheapest Price</button>
+      </div>
+      <!-- results -->
+      <div class="results-container" id="priceResults">
+        <div style="font-weight: 600; margin: 0.2rem 0 0.4rem;">Wireless Noise Cancelling Headphones</div>
+        <div style="color: #4a5a74; margin-bottom: 0.5rem;">Original: $129.99</div>
+        <div class="comparison-grid" id="priceGrid">
+          <!-- injected by JS -->
+        </div>
+        <div style="font-size: 0.8rem; color: #6b7a93; margin-top: 0.8rem; background: #f1f5f9; padding: 0.4rem 1rem; border-radius: 40px; display: inline-block;">⚡ demo data · for interface preview</div>
+      </div>
+    </section>
+
+    <!-- ====== 2. FIND COUPONS ====== -->
+    <section id="coupons" class="section-card">
+      <div class="section-title"><i class="fas fa-percent"></i> Find Coupon Codes</div>
+      <div class="input-group">
+        <select id="storeSelect" aria-label="store">
+          <option value="amazon">Amazon</option>
+          <option value="bestbuy">Best Buy</option>
+          <option value="walmart">Walmart</option>
+          <option value="target">Target</option>
+        </select>
+        <input type="url" id="couponUrl" placeholder="Product URL (optional)" aria-label="product url for coupons">
+        <button class="btn-primary" id="searchCouponBtn"><i class="fas fa-ticket"></i> Find Coupons</button>
+      </div>
+      <div class="results-container" id="couponResults">
+        <div class="coupon-list" id="couponList"></div>
+        <div style="font-size: 0.8rem; color: #6b7a93; margin-top: 0.8rem; background: #f1f5f9; padding: 0.4rem 1rem; border-radius: 40px; display: inline-block;">⚡ demo data · for interface preview</div>
+      </div>
+    </section>
+
+    <!-- ====== 3. HOW IT WORKS ====== -->
+    <section id="howitworks" class="section-card">
+      <div class="section-title"><i class="fas fa-lightbulb"></i> How It Works</div>
+      <div class="steps">
+        <div class="step"><div class="step-number">01</div><h4>Paste a Product Link</h4><p style="font-size:0.9rem; color:#3a4a66;">Enter any product URL</p></div>
+        <div class="step"><div class="step-number">02</div><h4>Compare Prices</h4><p style="font-size:0.9rem; color:#3a4a66;">See stores & savings</p></div>
+        <div class="step"><div class="step-number">03</div><h4>Find Coupons & Save</h4><p style="font-size:0.9rem; color:#3a4a66;">Copy codes & checkout</p></div>
+      </div>
+    </section>
+
+    <!-- ====== DISCLAIMER ====== -->
+    <div class="disclaimer">
+      <i class="fas fa-shield-alt" style="margin-right:0.6rem; color:#4f46e5;"></i>
+      <strong>Disclaimer:</strong> Prices, availability, shipping costs, and coupon validity can change. Results shown are demo data and will eventually come from external sources. Do not rely on this demo for real purchases.
+    </div>
+
+    <!-- ====== FOOTER ====== -->
+    <footer>
+      <div><strong>DealHunter</strong><br><span style="color:#4a5a74;">Compare smarter. Spend less.</span></div>
+      <div class="footer-links">
+        <a href="#">About</a>
+        <a href="#howitworks">How It Works</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast">✓ Copied!</div>
+
+  <script>
+    /* ===== script.js ===== */
+
+    (function() {
+      "use strict";
+
+      // ----- DOM refs -----
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+
+      const priceResults = document.getElementById('priceResults');
+      const priceGrid = document.getElementById('priceGrid');
+      const searchPriceBtn = document.getElementById('searchPriceBtn');
+      const productUrlInput = document.getElementById('productUrl');
+
+      const couponResults = document.getElementById('couponResults');
+      const couponList = document.getElementById('couponList');
+      const searchCouponBtn = document.getElementById('searchCouponBtn');
+      const storeSelect = document.getElementById('storeSelect');
+      const couponUrlInput = document.getElementById('couponUrl');
+
+      const toast = document.getElementById('toast');
+      let toastTimeout = null;
+
+      // ----- helpers -----
+      function showToast(msg) {
+        toast.textContent = msg || '✓ Copied!';
+        toast.classList.add('show');
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => toast.classList.remove('show'), 2200);
+      }
+
+      function simulateLoading(btn, duration = 900) {
+        const orig = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner"></span> Searching...';
+        return new Promise(resolve => {
+          setTimeout(() => {
+            btn.innerHTML = orig;
+            btn.disabled = false;
+            resolve();
+          }, duration);
+        });
+      }
+
+      // ----- 1. DEMO PRICE DATA -----
+      function renderPriceDemo() {
+        const stores = [
+          { name: 'Store A', price: '$129.99', original: '$129.99', shipping: 'Free shipping', save: '' },
+          { name: 'Store B', price: '$109.99', original: '$129.99', shipping: 'Free shipping', save: '$20' },
+          { name: 'Store C', price: '$94.99', original: '$129.99', shipping: 'Free 2-day', save: '$35', best: true }
+        ];
+        priceGrid.innerHTML = stores.map(s => `
+          <div class="store-card">
+            <div class="store-name">${s.name}</div>
+            <div class="store-price">${s.price} ${s.original ? `<span class="original-price">${s.original}</span>` : ''}</div>
+            ${s.save ? `<div class="savings-badge">Save ${s.save}</div>` : ''}
+            ${s.best ? '<div class="best-price">⭐ BEST PRICE</div>' : ''}
+            <div class="shipping"><i class="fas fa-truck"></i> ${s.shipping}</div>
+            <button class="btn-outline" style="width:100%; margin-top:0.5rem;">View Deal</button>
+          </div>
+        `).join('');
+      }
+
+      // ----- 2. DEMO COUPON DATA -----
+      function renderCouponDemo() {
+        const coupons = [
+          { code: 'SAVE20', desc: '20% OFF', detail: '20% off eligible products', active: true },
+          { code: 'WELCOME10', desc: '10% OFF', detail: '10% off for eligible customers', active: true },
+          { code: 'OLDDEAL', desc: '', detail: '', active: false }
+        ];
+        couponList.innerHTML = coupons.map(c => {
+          const statusClass = c.active ? '' : 'inactive';
+          const statusText = c.active ? 'Likely Active' : 'Unavailable';
+          const copyBtn = c.active ? `<button class="btn-copy" data-code="${c.code}"><i class="far fa-copy"></i> Copy Code</button>` : '';
+          return `
+            <div class="coupon-item">
+              <span class="coupon-code">${c.code}</span>
+              ${c.desc ? `<span class="coupon-desc"><strong>${c.desc}</strong> ${c.detail}</span>` : `<span class="coupon-desc">—</span>`}
+              <span class="coupon-status ${statusClass}">${statusText}</span>
+              ${copyBtn}
+            </div>
+          `;
+        }).join('');
+
+        // attach copy events
+        document.querySelectorAll('.btn-copy').forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            const code = this.dataset.code;
+            if (code) {
+              navigator.clipboard?.writeText(code).then(() => {
+                showToast(`✓ Copied "${code}"`);
+              }).catch(() => {
+                // fallback
+                const ta = document.createElement('textarea');
+                ta.value = code;
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                ta.remove();
+                showToast(`✓ Copied "${code}"`);
+              });
+            }
+          });
+        });
+      }
+
+      // ----- price search (simulated) -----
+      async function handlePriceSearch() {
+        const url = productUrlInput.value.trim();
+        if (!url) {
+          showToast('Please paste a product link');
+          return;
+        }
+        // basic url validation
+        try { new URL(url); } catch (_) { showToast('Please enter a valid URL'); return; }
+
+        await simulateLoading(searchPriceBtn);
+        priceResults.classList.add('visible');
+        renderPriceDemo();
+        // scroll to results
+        priceResults.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      // ----- coupon search (simulated) -----
+      async function handleCouponSearch() {
+        const store = storeSelect.value;
+        const url = couponUrlInput.value.trim();
+        // optional URL – if provided, validate
+        if (url) {
+          try { new URL(url); } catch (_) { showToast('Please enter a valid URL or leave empty'); return; }
+        }
+        await simulateLoading(searchCouponBtn);
+        couponResults.classList.add('visible');
+        renderCouponDemo();
+        couponResults.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      // ----- events -----
+      searchPriceBtn.addEventListener('click', handlePriceSearch);
+      searchCouponBtn.addEventListener('click', handleCouponSearch);
+
+      // enter key on inputs
+      productUrlInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') handlePriceSearch(); });
+      couponUrlInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleCouponSearch(); });
+
+      // hamburger
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+
+      // close nav on link click (mobile)
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => navLinks.classList.remove('open'));
+      });
+
+      // ----- init: show demo data on first load (optional) but we keep hidden by default.
+      // we pre-render but keep hidden. user sees nothing until button click.
+      // but we want to pre-fill grid & coupons for later display.
+      renderPriceDemo();
+      renderCouponDemo();
+      // make sure results are hidden initially
+      priceResults.classList.remove('visible');
+      couponResults.classList.remove('visible');
+
+      // small extra: if user clicks "Start Saving" show a toast
+      document.querySelector('.nav-cta')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        showToast('🚀 Start saving soon!');
+      });
+
+      console.log('DealHunter frontend ready (demo mode)');
+    })();
+  </script>
+</body>
+</html>
