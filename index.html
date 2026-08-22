@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
-  <title>DealHunter · find it cheaper</title>
+  <title>DealHunter · Find It Cheaper</title>
 
-  <!-- Font & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
@@ -31,7 +30,6 @@
       margin: 0 auto;
     }
 
-    /* NAVIGATION */
     nav {
       display: flex;
       align-items: center;
@@ -82,10 +80,6 @@
       font-weight: 600;
     }
 
-    .nav-cta:hover {
-      background: #2e4a9a !important;
-    }
-
     .hamburger {
       display: none;
       font-size: 1.8rem;
@@ -118,7 +112,6 @@
       }
     }
 
-    /* HERO */
     .hero {
       padding: 3.2rem 0 2.8rem;
       text-align: center;
@@ -146,7 +139,6 @@
       margin: 0.8rem auto 2rem;
     }
 
-    /* CARDS */
     .section-card {
       background: white;
       border-radius: 32px;
@@ -169,7 +161,6 @@
       color: #4f46e5;
     }
 
-    /* INPUTS */
     .input-group {
       display: flex;
       flex-wrap: wrap;
@@ -195,7 +186,6 @@
       box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
     }
 
-    /* BUTTONS */
     .btn-primary {
       background: #1e3a8a;
       border: none;
@@ -230,24 +220,6 @@
       cursor: pointer;
     }
 
-    .btn-outline:hover {
-      background: #eef2ff;
-    }
-
-    /* BACKEND TEST */
-    .backend-test {
-      text-align: center;
-      margin: 0 auto 2rem;
-    }
-
-    .backend-status {
-      margin-top: 0.8rem;
-      font-size: 0.9rem;
-      color: #4a5a74;
-      min-height: 1.4rem;
-    }
-
-    /* RESULTS */
     .results-container {
       margin-top: 1.8rem;
       display: none;
@@ -259,11 +231,12 @@
     }
 
     @keyframes fadeSlide {
-      0% {
+      from {
         opacity: 0;
         transform: translateY(8px);
       }
-      100% {
+
+      to {
         opacity: 1;
         transform: translateY(0);
       }
@@ -284,10 +257,6 @@
       border: 1px solid #eef2f6;
     }
 
-    .store-card:hover {
-      border-color: #b7c6e0;
-    }
-
     .store-name {
       font-weight: 700;
       font-size: 1.1rem;
@@ -298,45 +267,15 @@
       font-size: 1.6rem;
       font-weight: 700;
       color: #0b1a33;
-      margin: 0.3rem 0 0.1rem;
-    }
-
-    .original-price {
-      text-decoration: line-through;
-      color: #6b7a93;
-      font-size: 0.9rem;
-      margin-left: 0.4rem;
-      font-weight: 400;
-    }
-
-    .savings-badge {
-      background: #d1fae5;
-      color: #0b5e42;
-      padding: 0.2rem 0.8rem;
-      border-radius: 40px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      display: inline-block;
       margin: 0.3rem 0;
-    }
-
-    .best-price {
-      background: #fef3c7;
-      color: #92400e;
-      padding: 0.2rem 0.8rem;
-      border-radius: 40px;
-      font-weight: 700;
-      font-size: 0.7rem;
-      text-transform: uppercase;
     }
 
     .shipping {
       font-size: 0.8rem;
       color: #4a5a74;
-      margin: 0.2rem 0 0.6rem;
+      margin: 0.4rem 0 0.8rem;
     }
 
-    /* COUPONS */
     .coupon-list {
       display: flex;
       flex-direction: column;
@@ -358,12 +297,10 @@
 
     .coupon-code {
       font-weight: 700;
-      font-family: 'Inter', monospace;
       background: #eef2ff;
       padding: 0.2rem 1rem;
       border-radius: 40px;
       font-size: 0.9rem;
-      letter-spacing: 0.5px;
     }
 
     .coupon-desc {
@@ -394,12 +331,6 @@
       cursor: pointer;
     }
 
-    .btn-copy:hover {
-      background: #eef2ff;
-      border-color: #4f46e5;
-    }
-
-    /* HOW IT WORKS */
     .steps {
       display: flex;
       flex-wrap: wrap;
@@ -425,7 +356,6 @@
       margin: 0.2rem 0;
     }
 
-    /* DISCLAIMER */
     .disclaimer {
       background: #f1f5f9;
       border-radius: 24px;
@@ -436,7 +366,6 @@
       margin: 2.2rem 0 1.8rem;
     }
 
-    /* FOOTER */
     footer {
       border-top: 1px solid #e2e8f0;
       padding: 2rem 0 1rem;
@@ -459,7 +388,6 @@
       font-weight: 500;
     }
 
-    /* TOAST */
     .toast {
       position: fixed;
       bottom: 2rem;
@@ -470,7 +398,6 @@
       padding: 0.7rem 2rem;
       border-radius: 60px;
       font-weight: 500;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
       opacity: 0;
       transition: opacity 0.25s;
       pointer-events: none;
@@ -481,7 +408,6 @@
       opacity: 1;
     }
 
-    /* SPINNER */
     .spinner {
       display: inline-block;
       width: 1.2rem;
@@ -517,722 +443,654 @@
 
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <!-- NAVIGATION -->
-    <nav>
-      <div class="logo">
-        <i class="fas fa-bolt"></i> DealHunter
-      </div>
-
-      <button class="hamburger" id="hamburger" aria-label="menu">
-        <i class="fas fa-bars"></i>
-      </button>
-
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#cheaper">Find Cheaper</a></li>
-        <li><a href="#coupons">Coupons</a></li>
-        <li><a href="#howitworks">How It Works</a></li>
-        <li><a href="#" class="nav-cta">Start Saving</a></li>
-      </ul>
-    </nav>
-
-    <!-- HERO -->
-    <header class="hero">
-      <h1>Find It Cheaper. <span>Save More.</span></h1>
-      <p>Paste a product link and discover better prices and available coupons in seconds.</p>
-    </header>
-
-    <!-- BACKEND TEST -->
-    <div class="backend-test">
-      <button class="btn-outline" id="testBackendBtn">
-        <i class="fas fa-server"></i> Test Backend
-      </button>
-      <div class="backend-status" id="backendStatus"></div>
+  <nav>
+    <div class="logo">
+      <i class="fas fa-bolt"></i> DealHunter
     </div>
 
-    <!-- FIND IT CHEAPER -->
-    <section id="cheaper" class="section-card">
-      <div class="section-title">
-        <i class="fas fa-tag"></i> Find It Cheaper
-      </div>
+    <button class="hamburger" id="hamburger" aria-label="menu">
+      <i class="fas fa-bars"></i>
+    </button>
 
-      <div class="input-group">
-        <input
-          type="url"
-          id="productUrl"
-          placeholder="Paste a product link..."
-          aria-label="product link"
-        >
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#cheaper">Find Cheaper</a></li>
+      <li><a href="#coupons">Coupons</a></li>
+      <li><a href="#howitworks">How It Works</a></li>
+      <li><a href="#cheaper" class="nav-cta">Start Saving</a></li>
+    </ul>
+  </nav>
 
-        <button class="btn-primary" id="searchPriceBtn">
-          <i class="fas fa-search"></i> Find Cheapest Price
-        </button>
-      </div>
+  <header class="hero">
+    <h1>Find It Cheaper. <span>Save More.</span></h1>
+    <p>Paste a product link and discover better prices and available coupons in seconds.</p>
+  </header>
 
-      <div class="results-container" id="priceResults">
-        <div style="font-weight:600;margin:0.2rem 0 0.4rem;">
-          Wireless Noise Cancelling Headphones
-        </div>
+  <section id="cheaper" class="section-card">
 
-        <div style="color:#4a5a74;margin-bottom:0.5rem;">
-          Original: $129.99
-        </div>
-
-        <div class="comparison-grid" id="priceGrid"></div>
-
-        <div style="font-size:0.8rem;color:#6b7a93;margin-top:0.8rem;background:#f1f5f9;padding:0.4rem 1rem;border-radius:40px;display:inline-block;">
-          ⚡ demo data · for interface preview
-        </div>
-      </div>
-    </section>
-
-    <!-- FIND COUPONS -->
-    <section id="coupons" class="section-card">
-      <div class="section-title">
-        <i class="fas fa-percent"></i> Find Coupon Codes
-      </div>
-
-      <div class="input-group">
-        <select id="storeSelect" aria-label="store">
-          <option value="amazon">Amazon</option>
-          <option value="bestbuy">Best Buy</option>
-          <option value="walmart">Walmart</option>
-          <option value="target">Target</option>
-        </select>
-
-        <input
-          type="url"
-          id="couponUrl"
-          placeholder="Product URL (optional)"
-          aria-label="product url for coupons"
-        >
-
-        <button class="btn-primary" id="searchCouponBtn">
-          <i class="fas fa-ticket"></i> Find Coupons
-        </button>
-      </div>
-
-      <div class="results-container" id="couponResults">
-        <div class="coupon-list" id="couponList"></div>
-
-        <div style="font-size:0.8rem;color:#6b7a93;margin-top:0.8rem;background:#f1f5f9;padding:0.4rem 1rem;border-radius:40px;display:inline-block;">
-          ⚡ demo data · for interface preview
-        </div>
-      </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section id="howitworks" class="section-card">
-      <div class="section-title">
-        <i class="fas fa-lightbulb"></i> How It Works
-      </div>
-
-      <div class="steps">
-        <div class="step">
-          <div class="step-number">01</div>
-          <h4>Paste a Product Link</h4>
-          <p style="font-size:0.9rem;color:#3a4a66;">
-            Enter any product URL
-          </p>
-        </div>
-
-        <div class="step">
-          <div class="step-number">02</div>
-          <h4>Compare Prices</h4>
-          <p style="font-size:0.9rem;color:#3a4a66;">
-            See stores & savings
-          </p>
-        </div>
-
-        <div class="step">
-          <div class="step-number">03</div>
-          <h4>Find Coupons & Save</h4>
-          <p style="font-size:0.9rem;color:#3a4a66;">
-            Copy codes & checkout
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- DISCLAIMER -->
-    <div class="disclaimer">
-      <i class="fas fa-shield-alt" style="margin-right:0.6rem;color:#4f46e5;"></i>
-
-      <strong>Disclaimer:</strong>
-      Prices, availability, shipping costs, and coupon validity can change.
-      Results shown are demo data and will eventually come from external sources.
-      Do not rely on this demo for real purchases.
+    <div class="section-title">
+      <i class="fas fa-tag"></i>
+      Find It Cheaper
     </div>
 
-    <!-- FOOTER -->
-    <footer>
-      <div>
-        <strong>DealHunter</strong><br>
-        <span style="color:#4a5a74;">
-          Compare smarter. Spend less.
-        </span>
+    <div class="input-group">
+
+      <input
+        type="url"
+        id="productUrl"
+        placeholder="Paste a product link..."
+        aria-label="product link"
+      >
+
+      <button class="btn-primary" id="searchPriceBtn">
+        <i class="fas fa-search"></i>
+        Find Cheapest Price
+      </button>
+
+    </div>
+
+    <div class="results-container" id="priceResults">
+
+      <div style="font-weight:600;margin:0.2rem 0 0.4rem;">
+        DealHunter Backend Result
       </div>
 
-      <div class="footer-links">
-        <a href="#">About</a>
-        <a href="#howitworks">How It Works</a>
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="#">Contact</a>
-      </div>
-    </footer>
+      <div class="comparison-grid" id="priceGrid"></div>
 
+    </div>
+
+  </section>
+
+  <section id="coupons" class="section-card">
+
+    <div class="section-title">
+      <i class="fas fa-percent"></i>
+      Find Coupon Codes
+    </div>
+
+    <div class="input-group">
+
+      <select id="storeSelect" aria-label="store">
+        <option value="amazon">Amazon</option>
+        <option value="bestbuy">Best Buy</option>
+        <option value="walmart">Walmart</option>
+        <option value="target">Target</option>
+      </select>
+
+      <input
+        type="url"
+        id="couponUrl"
+        placeholder="Product URL (optional)"
+        aria-label="product url for coupons"
+      >
+
+      <button class="btn-primary" id="searchCouponBtn">
+        <i class="fas fa-ticket"></i>
+        Find Coupons
+      </button>
+
+    </div>
+
+    <div class="results-container" id="couponResults">
+
+      <div class="coupon-list" id="couponList"></div>
+
+    </div>
+
+  </section>
+
+  <section id="howitworks" class="section-card">
+
+    <div class="section-title">
+      <i class="fas fa-lightbulb"></i>
+      How It Works
+    </div>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-number">01</div>
+        <h4>Paste a Product Link</h4>
+        <p style="font-size:0.9rem;color:#3a4a66;">
+          Enter any product URL
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">02</div>
+        <h4>Compare Prices</h4>
+        <p style="font-size:0.9rem;color:#3a4a66;">
+          See stores & savings
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">03</div>
+        <h4>Find Coupons & Save</h4>
+        <p style="font-size:0.9rem;color:#3a4a66;">
+          Copy codes & checkout
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <div class="disclaimer">
+    <i class="fas fa-shield-alt" style="margin-right:0.6rem;color:#4f46e5;"></i>
+    <strong>Disclaimer:</strong>
+    Prices, availability, shipping costs, and coupon validity can change.
+    DealHunter results currently come from the connected backend test service.
   </div>
 
-  <!-- TOAST -->
-  <div id="toast" class="toast">✓ Copied!</div>
+  <footer>
 
-  <!-- JAVASCRIPT -->
-  <script>
-    (function() {
-      "use strict";
+    <div>
+      <strong>DealHunter</strong><br>
+      <span style="color:#4a5a74;">
+        Compare smarter. Spend less.
+      </span>
+    </div>
 
-      /* ==========================================
-         CLOUDFLARE WORKER
-         ========================================== */
+    <div class="footer-links">
+      <a href="#">About</a>
+      <a href="#howitworks">How It Works</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </div>
 
-      const BACKEND_URL =
-        "https://dealhunter-api.alihussain10000077.workers.dev/";
+  </footer>
 
-      /* ==========================================
-         DOM REFERENCES
-         ========================================== */
+</div>
 
-      const hamburger = document.getElementById("hamburger");
-      const navLinks = document.getElementById("navLinks");
+<div id="toast" class="toast">Message</div>
 
-      const priceResults = document.getElementById("priceResults");
-      const priceGrid = document.getElementById("priceGrid");
-      const searchPriceBtn = document.getElementById("searchPriceBtn");
-      const productUrlInput = document.getElementById("productUrl");
+<script>
+(function () {
 
-      const couponResults = document.getElementById("couponResults");
-      const couponList = document.getElementById("couponList");
-      const searchCouponBtn = document.getElementById("searchCouponBtn");
-      const storeSelect = document.getElementById("storeSelect");
-      const couponUrlInput = document.getElementById("couponUrl");
+  "use strict";
 
-      const toast = document.getElementById("toast");
+  /* =========================================
+     DEALHUNTER BACKEND
+     ========================================= */
 
-      const testBackendBtn =
-        document.getElementById("testBackendBtn");
+  const BACKEND_URL =
+    "https://dealhunter-api.alihussain10000077.workers.dev/";
 
-      const backendStatus =
-        document.getElementById("backendStatus");
 
-      let toastTimeout = null;
+  /* =========================================
+     DOM ELEMENTS
+     ========================================= */
 
-      /* ==========================================
-         TOAST
-         ========================================== */
+  const hamburger =
+    document.getElementById("hamburger");
 
-      function showToast(msg) {
-        toast.textContent = msg || "✓ Done!";
-        toast.classList.add("show");
+  const navLinks =
+    document.getElementById("navLinks");
 
-        clearTimeout(toastTimeout);
+  const productUrlInput =
+    document.getElementById("productUrl");
 
-        toastTimeout = setTimeout(() => {
-          toast.classList.remove("show");
-        }, 2200);
-      }
+  const searchPriceBtn =
+    document.getElementById("searchPriceBtn");
 
-      /* ==========================================
-         LOADING
-         ========================================== */
+  const priceResults =
+    document.getElementById("priceResults");
 
-      function simulateLoading(btn, duration = 900) {
-        const original = btn.innerHTML;
+  const priceGrid =
+    document.getElementById("priceGrid");
 
-        btn.disabled = true;
+  const couponUrlInput =
+    document.getElementById("couponUrl");
 
-        btn.innerHTML =
-          '<span class="spinner"></span> Searching...';
+  const searchCouponBtn =
+    document.getElementById("searchCouponBtn");
 
-        return new Promise(resolve => {
-          setTimeout(() => {
-            btn.innerHTML = original;
-            btn.disabled = false;
-            resolve();
-          }, duration);
-        });
-      }
+  const couponResults =
+    document.getElementById("couponResults");
 
-      /* ==========================================
-         URL VALIDATION
-         ========================================== */
+  const couponList =
+    document.getElementById("couponList");
 
-      function isValidUrl(url) {
+  const storeSelect =
+    document.getElementById("storeSelect");
+
+  const toast =
+    document.getElementById("toast");
+
+
+  /* =========================================
+     TOAST
+     ========================================= */
+
+  let toastTimeout;
+
+  function showToast(message) {
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    clearTimeout(toastTimeout);
+
+    toastTimeout = setTimeout(function () {
+      toast.classList.remove("show");
+    }, 2500);
+  }
+
+
+  /* =========================================
+     URL VALIDATION
+     ========================================= */
+
+  function isValidUrl(value) {
+
+    try {
+
+      new URL(value);
+
+      return true;
+
+    } catch (error) {
+
+      return false;
+
+    }
+  }
+
+
+  /* =========================================
+     BUTTON LOADING
+     ========================================= */
+
+  async function buttonLoading(button, callback) {
+
+    const originalHTML = button.innerHTML;
+
+    button.disabled = true;
+
+    button.innerHTML =
+      '<span class="spinner"></span> Connecting...';
+
+    try {
+
+      await callback();
+
+    } finally {
+
+      button.innerHTML = originalHTML;
+
+      button.disabled = false;
+
+    }
+  }
+
+
+  /* =========================================
+     CONNECT TO BACKEND
+     ========================================= */
+
+  async function connectBackend(productUrl) {
+
+    const response = await fetch(BACKEND_URL, {
+      method: "GET",
+      mode: "cors"
+    });
+
+    if (!response.ok) {
+
+      throw new Error(
+        "Backend returned HTTP " + response.status
+      );
+
+    }
+
+    const text = await response.text();
+
+    return text;
+  }
+
+
+  /* =========================================
+     PRICE SEARCH
+     ========================================= */
+
+  async function handlePriceSearch() {
+
+    const productUrl =
+      productUrlInput.value.trim();
+
+
+    if (!productUrl) {
+
+      showToast("Please paste a product link");
+
+      return;
+
+    }
+
+
+    if (!isValidUrl(productUrl)) {
+
+      showToast("Please enter a valid URL");
+
+      return;
+
+    }
+
+
+    await buttonLoading(
+      searchPriceBtn,
+      async function () {
+
         try {
-          new URL(url);
-          return true;
-        } catch (_) {
-          return false;
-        }
-      }
 
-      /* ==========================================
-         TEST CLOUDFLARE BACKEND
-         ========================================== */
+          const backendMessage =
+            await connectBackend(productUrl);
 
-      async function testBackend() {
 
-        backendStatus.textContent = "Connecting...";
+          priceGrid.innerHTML = `
 
-        testBackendBtn.disabled = true;
+            <div class="store-card">
 
-        try {
+              <div class="store-name">
+                DealHunter Backend
+              </div>
 
-          const response = await fetch(BACKEND_URL, {
-            method: "GET"
-          });
+              <div class="store-price">
+                Connected ✓
+              </div>
 
-          if (!response.ok) {
-            throw new Error(
-              "Server returned HTTP " + response.status
-            );
-          }
+              <div class="shipping">
+                ${backendMessage}
+              </div>
 
-          const text = await response.text();
-
-          backendStatus.textContent =
-            "✅ Backend connected: " + text;
-
-          showToast("✓ Backend connected!");
-
-        } catch (error) {
-
-          backendStatus.textContent =
-            "❌ Backend connection failed: " +
-            error.message;
-
-          showToast("Backend connection failed");
-
-          console.error("Backend error:", error);
-
-        } finally {
-
-          testBackendBtn.disabled = false;
-
-        }
-      }
-
-      /* ==========================================
-         DEMO PRICE DATA
-         ========================================== */
-
-      function renderPriceDemo() {
-
-        const stores = [
-
-          {
-            name: "Store A",
-            price: "$129.99",
-            original: "$129.99",
-            shipping: "Free shipping",
-            save: ""
-          },
-
-          {
-            name: "Store B",
-            price: "$109.99",
-            original: "$129.99",
-            shipping: "Free shipping",
-            save: "$20"
-          },
-
-          {
-            name: "Store C",
-            price: "$94.99",
-            original: "$129.99",
-            shipping: "Free 2-day",
-            save: "$35",
-            best: true
-          }
-
-        ];
-
-        priceGrid.innerHTML = stores.map(s => `
-
-          <div class="store-card">
-
-            <div class="store-name">
-              ${s.name}
-            </div>
-
-            <div class="store-price">
-
-              ${s.price}
-
-              ${
-                s.original
-                  ? `<span class="original-price">${s.original}</span>`
-                  : ""
-              }
-
-            </div>
-
-            ${
-              s.save
-                ? `<div class="savings-badge">
-                    Save ${s.save}
-                   </div>`
-                : ""
-            }
-
-            ${
-              s.best
-                ? `<div class="best-price">
-                    ⭐ BEST PRICE
-                   </div>`
-                : ""
-            }
-
-            <div class="shipping">
-              <i class="fas fa-truck"></i>
-              ${s.shipping}
-            </div>
-
-            <button
-              class="btn-outline"
-              style="width:100%;margin-top:0.5rem;"
-            >
-              View Deal
-            </button>
-
-          </div>
-
-        `).join("");
-      }
-
-      /* ==========================================
-         DEMO COUPONS
-         ========================================== */
-
-      function renderCouponDemo() {
-
-        const coupons = [
-
-          {
-            code: "SAVE20",
-            desc: "20% OFF",
-            detail: "20% off eligible products",
-            active: true
-          },
-
-          {
-            code: "WELCOME10",
-            desc: "10% OFF",
-            detail: "10% off for eligible customers",
-            active: true
-          },
-
-          {
-            code: "OLDDEAL",
-            desc: "",
-            detail: "",
-            active: false
-          }
-
-        ];
-
-        couponList.innerHTML = coupons.map(c => {
-
-          const statusClass =
-            c.active ? "" : "inactive";
-
-          const statusText =
-            c.active
-              ? "Likely Active"
-              : "Unavailable";
-
-          const copyButton =
-            c.active
-              ? `<button class="btn-copy" data-code="${c.code}">
-                   <i class="far fa-copy"></i>
-                   Copy Code
-                 </button>`
-              : "";
-
-          return `
-
-            <div class="coupon-item">
-
-              <span class="coupon-code">
-                ${c.code}
-              </span>
-
-              ${
-                c.desc
-                  ? `<span class="coupon-desc">
-                       <strong>${c.desc}</strong>
-                       ${c.detail}
-                     </span>`
-                  : `<span class="coupon-desc">—</span>`
-              }
-
-              <span class="coupon-status ${statusClass}">
-                ${statusText}
-              </span>
-
-              ${copyButton}
+              <div style="
+                margin-top:0.8rem;
+                padding:0.7rem;
+                background:#d1fae5;
+                color:#065f46;
+                border-radius:15px;
+                font-size:0.85rem;
+              ">
+                Your website successfully connected
+                to the DealHunter backend.
+              </div>
 
             </div>
 
           `;
 
-        }).join("");
+          priceResults.classList.add("visible");
 
-        document.querySelectorAll(".btn-copy")
-          .forEach(btn => {
-
-            btn.addEventListener("click", function() {
-
-              const code = this.dataset.code;
-
-              if (!code) return;
-
-              if (
-                navigator.clipboard &&
-                navigator.clipboard.writeText
-              ) {
-
-                navigator.clipboard
-                  .writeText(code)
-                  .then(() => {
-                    showToast(`✓ Copied "${code}"`);
-                  })
-                  .catch(() => {
-                    copyToClipboardFallback(code);
-                  });
-
-              } else {
-
-                copyToClipboardFallback(code);
-
-              }
-
-            });
-
+          priceResults.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest"
           });
 
+          showToast("Backend connected ✓");
+
+
+        } catch (error) {
+
+          console.error(
+            "DealHunter backend error:",
+            error
+          );
+
+          priceResults.classList.add("visible");
+
+          priceGrid.innerHTML = `
+
+            <div class="store-card">
+
+              <div class="store-name">
+                Connection Error
+              </div>
+
+              <div class="store-price">
+                Failed to fetch
+              </div>
+
+              <div class="shipping">
+                The website could not connect
+                to the backend.
+              </div>
+
+            </div>
+
+          `;
+
+          showToast("Failed to connect to backend");
+
+        }
+
       }
+    );
 
-      /* ==========================================
-         CLIPBOARD FALLBACK
-         ========================================== */
+  }
 
-      function copyToClipboardFallback(text) {
 
-        const textarea =
-          document.createElement("textarea");
+  /* =========================================
+     COUPON SEARCH
+     ========================================= */
 
-        textarea.value = text;
+  async function handleCouponSearch() {
 
-        textarea.style.position = "fixed";
-        textarea.style.opacity = "0";
+    const url =
+      couponUrlInput.value.trim();
 
-        document.body.appendChild(textarea);
 
-        textarea.select();
+    if (url && !isValidUrl(url)) {
+
+      showToast("Please enter a valid URL");
+
+      return;
+
+    }
+
+
+    await buttonLoading(
+      searchCouponBtn,
+      async function () {
 
         try {
 
-          document.execCommand("copy");
+          const backendMessage =
+            await connectBackend(url);
 
-          showToast(`✓ Copied "${text}"`);
 
-        } catch (err) {
+          couponList.innerHTML = `
 
-          showToast("Failed to copy");
+            <div class="coupon-item">
 
-        }
+              <span class="coupon-code">
+                BACKEND
+              </span>
 
-        document.body.removeChild(textarea);
-      }
+              <span class="coupon-desc">
+                <strong>Backend Connected</strong>
+                ${backendMessage}
+              </span>
 
-      /* ==========================================
-         PRICE SEARCH
-         ========================================== */
+              <span class="coupon-status">
+                Connected
+              </span>
 
-      async function handlePriceSearch() {
+            </div>
 
-        const url =
-          productUrlInput.value.trim();
+          `;
 
-        if (!url) {
+          couponResults.classList.add("visible");
 
-          showToast("Please paste a product link");
+          couponResults.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest"
+          });
 
-          return;
-        }
+          showToast("Backend connected ✓");
 
-        if (!isValidUrl(url)) {
 
-          showToast("Please enter a valid URL");
+        } catch (error) {
 
-          return;
-        }
-
-        await simulateLoading(searchPriceBtn);
-
-        priceResults.classList.add("visible");
-
-        renderPriceDemo();
-
-        priceResults.scrollIntoView({
-          behavior: "smooth",
-          block: "nearest"
-        });
-
-      }
-
-      /* ==========================================
-         COUPON SEARCH
-         ========================================== */
-
-      async function handleCouponSearch() {
-
-        const url =
-          couponUrlInput.value.trim();
-
-        if (url && !isValidUrl(url)) {
-
-          showToast(
-            "Please enter a valid URL or leave empty"
+          console.error(
+            "Coupon backend error:",
+            error
           );
 
-          return;
+          couponList.innerHTML = `
+
+            <div class="coupon-item">
+
+              <span class="coupon-code">
+                ERROR
+              </span>
+
+              <span class="coupon-desc">
+                Backend connection failed.
+              </span>
+
+              <span class="coupon-status inactive">
+                Failed
+              </span>
+
+            </div>
+
+          `;
+
+          couponResults.classList.add("visible");
+
+          showToast("Failed to connect to backend");
+
         }
 
-        await simulateLoading(searchCouponBtn);
+      }
+    );
 
-        couponResults.classList.add("visible");
+  }
 
-        renderCouponDemo();
 
-        couponResults.scrollIntoView({
-          behavior: "smooth",
-          block: "nearest"
-        });
+  /* =========================================
+     MOBILE MENU
+     ========================================= */
+
+  hamburger.addEventListener(
+    "click",
+    function () {
+
+      navLinks.classList.toggle("open");
+
+    }
+  );
+
+
+  navLinks
+    .querySelectorAll("a")
+    .forEach(function (link) {
+
+      link.addEventListener(
+        "click",
+        function () {
+
+          navLinks.classList.remove("open");
+
+        }
+      );
+
+    });
+
+
+  /* =========================================
+     BUTTON EVENTS
+     ========================================= */
+
+  searchPriceBtn.addEventListener(
+    "click",
+    handlePriceSearch
+  );
+
+
+  searchCouponBtn.addEventListener(
+    "click",
+    handleCouponSearch
+  );
+
+
+  /* =========================================
+     ENTER KEY
+     ========================================= */
+
+  productUrlInput.addEventListener(
+    "keydown",
+    function (event) {
+
+      if (event.key === "Enter") {
+
+        event.preventDefault();
+
+        handlePriceSearch();
 
       }
 
-      /* ==========================================
-         EVENT LISTENERS
-         ========================================== */
+    }
+  );
 
-      testBackendBtn.addEventListener(
-        "click",
-        testBackend
-      );
 
-      searchPriceBtn.addEventListener(
-        "click",
-        handlePriceSearch
-      );
+  couponUrlInput.addEventListener(
+    "keydown",
+    function (event) {
 
-      searchCouponBtn.addEventListener(
-        "click",
-        handleCouponSearch
-      );
+      if (event.key === "Enter") {
 
-      productUrlInput.addEventListener(
-        "keydown",
-        e => {
+        event.preventDefault();
 
-          if (e.key === "Enter") {
+        handleCouponSearch();
 
-            e.preventDefault();
+      }
 
-            handlePriceSearch();
+    }
+  );
 
-          }
 
-        }
-      );
+  /* =========================================
+     START SAVING
+     ========================================= */
 
-      couponUrlInput.addEventListener(
-        "keydown",
-        e => {
+  const startSaving =
+    document.querySelector(".nav-cta");
 
-          if (e.key === "Enter") {
 
-            e.preventDefault();
+  if (startSaving) {
 
-            handleCouponSearch();
+    startSaving.addEventListener(
+      "click",
+      function () {
 
-          }
+        showToast("Start saving with DealHunter!");
 
-        }
-      );
+      }
+    );
 
-      hamburger.addEventListener(
-        "click",
-        () => {
+  }
 
-          navLinks.classList.toggle("open");
 
-        }
-      );
+  /* =========================================
+     READY
+     ========================================= */
 
-      navLinks
-        .querySelectorAll("a")
-        .forEach(link => {
+  console.log(
+    "DealHunter frontend loaded."
+  );
 
-          link.addEventListener(
-            "click",
-            () => {
+  console.log(
+    "Backend:",
+    BACKEND_URL
+  );
 
-              navLinks.classList.remove("open");
-
-            }
-          );
-
-        });
-
-      document
-        .querySelector(".nav-cta")
-        ?.addEventListener(
-          "click",
-          e => {
-
-            e.preventDefault();
-
-            showToast("🚀 Start saving soon!");
-
-          }
-        );
-
-      /* ==========================================
-         INITIALIZATION
-         ========================================== */
-
-      renderPriceDemo();
-
-      renderCouponDemo();
-
-      priceResults.classList.remove("visible");
-
-      couponResults.classList.remove("visible");
-
-      console.log(
-        "✅ DealHunter frontend ready"
-      );
-
-      console.log(
-        "🔌 Cloudflare backend:",
-        BACKEND_URL
-      );
-
-    })();
-  </script>
+})();
+</script>
 
 </body>
 </html>
