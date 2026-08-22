@@ -718,7 +718,11 @@
       });
 
       console.log('DealHunter frontend ready (demo mode)');
-    })();
+    })();async function testBackend() {
+  const response = await fetch("dealhunter-api.alihussain10000077.workers.dev");
+  const result = await response.text();
+  alert(result);
+    }
   </script>
 </body>
 </html>
